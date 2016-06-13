@@ -212,7 +212,7 @@ body > section {
 .midnight-blue h6,
 .concrete h6,
 .asbestos h6 {
-  color: #fff;
+  color: #000000;//headings text-color
 }
 .turquoise small,
 .green-sea small,
@@ -284,7 +284,7 @@ body > section {
   background-color: #bdc3c7;
 }
 .wet-asphalt {
-  background-color: #888686;//background colour
+  background-color: #F5F7F8;//background color
 }
 .wet-asphalt a:not(.btn) {
   color: #bdc3c7;
@@ -725,7 +725,7 @@ ul.tag-cloud li {
   padding-top: 7px;
   padding-bottom: 7px;
   border-radius: 4px;
-  color: #000000; //top-right text colour
+  color: #000000; //top-right text color
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
@@ -880,7 +880,7 @@ ul.tag-cloud li {
   display: inline-block;
 }
 #bottom {
-  color: #bdc3c7;
+  color: #000000;//text color bottom section
 }
 #bottom h4 {
   margin-top: 0;
