@@ -284,7 +284,7 @@ body > section {
   background-color: #bdc3c7;
 }
 .wet-asphalt {
-  background-color: #656464;
+  background-color: #f1c07f;//background colour
 }
 .wet-asphalt a:not(.btn) {
   color: #bdc3c7;
@@ -725,7 +725,7 @@ ul.tag-cloud li {
   padding-top: 7px;
   padding-bottom: 7px;
   border-radius: 4px;
-  color: #bdc3c7;
+  color: #000000; //top-right text colour
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
