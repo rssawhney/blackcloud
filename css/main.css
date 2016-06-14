@@ -212,7 +212,7 @@ body > section {
 .midnight-blue h6,
 .concrete h6,
 .asbestos h6 {
-  color: #000000;//headings text-color
+  color: #fff;//headings text-color
 }
 .turquoise small,
 .green-sea small,
@@ -338,7 +338,7 @@ body > section {
 }
 #main-slider .carousel .boxed {
   padding: 10px 15px;
-  background-color: rgba(0, 0, 0, 0.8);
+  /*background-color: rgba(0, 0, 0, 0.8);*/
   display: inline-block;
 }
 #main-slider .carousel .item {
