@@ -52,10 +52,10 @@ jQuery(function($) {
 		$('html, body').animate({
 			scrollTop: $("body").offset().top
 		}, 500);
-	});	
+	});
 
 	//Pretty Photo
 	$("a[rel^='prettyPhoto']").prettyPhoto({
 		social_tools: false
-	});	
+	});
 });
