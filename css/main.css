@@ -424,7 +424,7 @@ body > section {
   -ms-animation: fadeInUp 300ms linear 1200ms both;
   animation: fadeInUp 300ms linear 1200ms both;
 }
-#services .media:hover .icon-md {
+#features .media:hover .icon-md {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.8);
 }
