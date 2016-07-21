@@ -17,20 +17,20 @@ jQuery(function($) {
 		});
 	});
 
-	//portfolio
+	//gallery
 	$(window).load(function(){
-		$portfolio_selectors = $('.portfolio-filter >li>a');
-		if($portfolio_selectors!='undefined'){
-			$portfolio = $('.portfolio-items');
-			$portfolio.isotope({
+		$gallery_selectors = $('.gallery-filter >li>a');
+		if($gallery_selectors!='undefined'){
+			$gallery = $('.gallery-items');
+			$gallery.isotope({
 				itemSelector : 'li',
 				layoutMode : 'fitRows'
 			});
-			$portfolio_selectors.on('click', function(){
-				$portfolio_selectors.removeClass('active');
+			$gallery_selectors.on('click', function(){
+				$gallery_selectors.removeClass('active');
 				$(this).addClass('active');
 				var selector = $(this).attr('data-filter');
-				$portfolio.isotope({ filter: selector });
+				$gallery.isotope({ filter: selector });
 				return false;
 			});
 		}

@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
 .clearfix {
   *zoom: 1;
 }
@@ -326,6 +326,11 @@ body > section {
 }
 #main-slider .carousel h2 {
   font-size: 36px;
+  color: #fff;
+}
+#main-slider .carousel p {
+  font-size: 21px;
+  color: #fff;
 }
 #main-slider .carousel .btn {
   border: 3px solid rgba(255, 255, 255, 0.5);
@@ -338,7 +343,7 @@ body > section {
 }
 #main-slider .carousel .boxed {
   padding: 10px 15px;
-  /*background-color: rgba(0, 0, 0, 0.8);*/
+  background-color: rgba(0, 0, 0, 0.8);
   display: inline-block;
 }
 #main-slider .carousel .item {
@@ -435,52 +440,52 @@ body > section {
   position: relative;
   margin: 0;
 }
-.portfolio-items,
-.portfolio-filter {
+.gallery-items,
+.gallery-filter {
   list-style: none;
   padding: 0;
   margin: 0 -20px 20px 0;
 }
-.portfolio-filter > li {
+.gallery-filter > li {
   display: inline-block;
 }
-.portfolio-items > li {
+.gallery-items > li {
   float: left;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.portfolio-items.col-2 > li {
+.gallery-items.col-2 > li {
   width: 50%;
 }
-.portfolio-items.col-3 > li {
+.gallery-items.col-3 > li {
   width: 33%;
 }
-.portfolio-items.col-4 > li {
+.gallery-items.col-4 > li {
   width: 25%;
 }
-.portfolio-items.col-5 > li {
+.gallery-items.col-5 > li {
   width: 20%;
 }
-.portfolio-items.col-6 > li {
+.gallery-items.col-6 > li {
   width: 16%;
 }
-.portfolio-item {
+.gallery-item {
   padding: 0;
   margin: 0;
 }
-.portfolio-item .item-inner {
+.gallery-item .item-inner {
   background: #fff;
   border: 1px solid #eee;
   padding: 10px 10px 0;
   margin: 0 20px 20px 0;
   position: relative;
 }
-.portfolio-item img {
+.gallery-item img {
   width: 100%;
 }
-.portfolio-item h5 {
+.gallery-item h5 {
   background: #fff;
   margin: 0;
   padding: 10px 0;
@@ -491,7 +496,7 @@ body > section {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.portfolio-item .overlay {
+.gallery-item .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -506,13 +511,13 @@ body > section {
   -o-transition: opacity 300ms;
   transition: opacity 300ms;
 }
-.portfolio-item .overlay .preview {
+.gallery-item .overlay .preview {
   position: relative;
   top: 50%;
   display: inline-block;
   margin-top: -20px;
 }
-.portfolio-item:hover .overlay {
+.gallery-item:hover .overlay {
   opacity: 1;
 }
 /* Start: Recommended Isotope styles */
