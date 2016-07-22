@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
 .clearfix {
   *zoom: 1;
 }
@@ -212,7 +212,7 @@ body > section {
 .midnight-blue h6,
 .concrete h6,
 .asbestos h6 {
-  color: #fff;
+  color: #fff;//headings text-color
 }
 .turquoise small,
 .green-sea small,
@@ -284,7 +284,7 @@ body > section {
   background-color: #bdc3c7;
 }
 .wet-asphalt {
-  background-color: #34495e;
+  background-color: #F5F7F8;//background color
 }
 .wet-asphalt a:not(.btn) {
   color: #bdc3c7;
@@ -326,6 +326,11 @@ body > section {
 }
 #main-slider .carousel h2 {
   font-size: 36px;
+  color: #fff;
+}
+#main-slider .carousel p {
+  font-size: 21px;
+  color: #fff;
 }
 #main-slider .carousel .btn {
   border: 3px solid rgba(255, 255, 255, 0.5);
@@ -424,9 +429,12 @@ body > section {
   -ms-animation: fadeInUp 300ms linear 1200ms both;
   animation: fadeInUp 300ms linear 1200ms both;
 }
-#services .media:hover .icon-md {
+#features .media:hover .icon-md {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.8);
+}
+#features .media-body p {
+  font-size: 16px;
 }
 #recent-works {
   padding: 90px 0;
@@ -435,52 +443,52 @@ body > section {
   position: relative;
   margin: 0;
 }
-.portfolio-items,
-.portfolio-filter {
+.gallery-items,
+.gallery-filter {
   list-style: none;
   padding: 0;
   margin: 0 -20px 20px 0;
 }
-.portfolio-filter > li {
+.gallery-filter > li {
   display: inline-block;
 }
-.portfolio-items > li {
+.gallery-items > li {
   float: left;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.portfolio-items.col-2 > li {
+.gallery-items.col-2 > li {
   width: 50%;
 }
-.portfolio-items.col-3 > li {
+.gallery-items.col-3 > li {
   width: 33%;
 }
-.portfolio-items.col-4 > li {
+.gallery-items.col-4 > li {
   width: 25%;
 }
-.portfolio-items.col-5 > li {
+.gallery-items.col-5 > li {
   width: 20%;
 }
-.portfolio-items.col-6 > li {
+.gallery-items.col-6 > li {
   width: 16%;
 }
-.portfolio-item {
+.gallery-item {
   padding: 0;
   margin: 0;
 }
-.portfolio-item .item-inner {
+.gallery-item .item-inner {
   background: #fff;
   border: 1px solid #eee;
   padding: 10px 10px 0;
   margin: 0 20px 20px 0;
   position: relative;
 }
-.portfolio-item img {
+.gallery-item img {
   width: 100%;
 }
-.portfolio-item h5 {
+.gallery-item h5 {
   background: #fff;
   margin: 0;
   padding: 10px 0;
@@ -491,7 +499,7 @@ body > section {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.portfolio-item .overlay {
+.gallery-item .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -506,13 +514,13 @@ body > section {
   -o-transition: opacity 300ms;
   transition: opacity 300ms;
 }
-.portfolio-item .overlay .preview {
+.gallery-item .overlay .preview {
   position: relative;
   top: 50%;
   display: inline-block;
   margin-top: -20px;
 }
-.portfolio-item:hover .overlay {
+.gallery-item:hover .overlay {
   opacity: 1;
 }
 /* Start: Recommended Isotope styles */
@@ -725,7 +733,19 @@ ul.tag-cloud li {
   padding-top: 7px;
   padding-bottom: 7px;
   border-radius: 4px;
-  color: #bdc3c7;
+  color: #000000; //top-right text color
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 4px;
+  color: #0776ad; //top-right text hover color
+}
+.navbar-inverse .navbar-nav > li > a:focus {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 4px;
+  color: #0776ad; //top-right text hover color
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
@@ -815,6 +835,25 @@ ul.tag-cloud li {
   -o-transition: 500ms;
   transition: 500ms;
 }
+.icon-md-google {
+  font-size: 36px;
+  height: 68px;
+  width: 68px;
+  line-height: 68px;
+  color: #fff;
+  margin-right: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  display: block;
+  border-radius: 50%;
+  -webkit-transition: 500ms;
+  -moz-transition: 500ms;
+  -o-transition: 500ms;
+  transition: 500ms;
+}
+.material-icons.md-48 {
+  font-size: 64px;
+}
 .modal {
   border: 0;
 }
@@ -880,7 +919,7 @@ ul.tag-cloud li {
   display: inline-block;
 }
 #bottom {
-  color: #bdc3c7;
+  color: #000000;//text color bottom section
 }
 #bottom h4 {
   margin-top: 0;
