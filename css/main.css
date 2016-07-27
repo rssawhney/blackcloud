@@ -429,12 +429,22 @@ body > section {
   -ms-animation: fadeInUp 300ms linear 1200ms both;
   animation: fadeInUp 300ms linear 1200ms both;
 }
+#basicInfo .media:hover .icon-md {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#basicInfo .media-body p {
+  font-size: 16px;
+}
 #features .media:hover .icon-md {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.8);
 }
 #features .media-body p {
   font-size: 16px;
+}
+#featuresIcon {
+  padding: 20px 0;
 }
 #recent-works {
   padding: 90px 0;
