@@ -66,11 +66,11 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
 
             m.on('popupopen', function(e) {
                 var marker = this._latlng;
-                console.log(marker);
+                // console.log(marker);
                 marker = marker.toString().replace(/[^0-9\,\.\-]/g, '');
-                console.log(marker);
+                // console.log(marker);
                 var fetchUrl = 'https://api.openaq.org/v1/latest?limit=10000&has_geo=true&radius=500&coordinates=' + marker;
-                console.log(fetchUrl);
+                // console.log(fetchUrl);
 
                 fetch(fetchUrl)
                     .then(function(response) {
@@ -78,20 +78,30 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
                     }).then(function(dataJson) {
                         // console.log('parsed json', dataJson);
                         var whitespace = ' ';
-                        // document.getElementById("tbody").innerHTML = '';
                         $('#tbody').html('');
                         dataJson.results[0].measurements.forEach(function(measurement) {
                             var opentr = '<tr ' + 'class=' + measurement.parameter + '>';
                             var closetr = '</tr>';
                             var opentd = '<td class="text-center">';
-                            // var opentd1 = elementId' class="text-center white">';
                             var closetd = '</td>';
-                            // document.getElementById("tbody").innerHTML += opentr + opentd + measurement.parameter + closetd + opentd + measurement.value + closetd + opentd + measurement.unit + closetd + opentd + measurement.lastUpdated + closetd + closetr;
-                            $('#tbody').html($('#tbody').html()+opentr + opentd + measurement.parameter + closetd + opentd + measurement.value + closetd + opentd + measurement.unit + closetd + opentd + measurement.lastUpdated + closetd + closetr);
+
+                            $('#tbody').html($('#tbody').html() + opentr + opentd + measurement.parameter + closetd + opentd + measurement.value + closetd + opentd + measurement.unit + closetd + opentd + measurement.lastUpdated + closetd + closetr);
                             if (parseInt($($('.pm25').children()[1]).text()) >= 10) {
                                 $('.pm25').addClass('red');
+                            } if (parseInt($($('.pm10').children()[1]).text()) >= 10) {
+                                $('.pm10').addClass('red');
+                            } if (parseInt($($('.no2').children()[1]).text()) >= 10) {
+                                $('.no2').addClass('red');
+                            } if (parseInt($($('.so2').children()[1]).text()) >= 10) {
+                                $('.so2').addClass('red');
+                            } if (parseInt($($('.o3').children()[1]).text()) >= 10) {
+                                $('.o3').addClass('red');
+                            } if (parseInt($($('.co').children()[1]).text()) >= 10) {
+                                $('.co').addClass('red');
+                            } if (parseInt($($('.bc').children()[1]).text()) >= 10) {
+                                $('.bc').addClass('red');
                             }
-                            console.log(document.getElementById("tbody").innerHTML);
+                            // console.log(document.getElementById("tbody").innerHTML);
                         });
                     }).catch(function(ex) {
                         console.log('parsing failed', ex);
