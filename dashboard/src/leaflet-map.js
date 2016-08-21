@@ -23,7 +23,7 @@ var map = L.map('map', {
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="//openstreetmap.org">OpenStreetMap</a> contributors, <a href="//creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="//mapbox.com">Mapbox</a>',
-    maxZoom: 18,
+    maxZoom: 20,
     id: 'nfsug007.142k19g5',
     accessToken: 'pk.eyJ1IjoibmZzdWcwMDciLCJhIjoiY2lybHczM2dyMDA1dGZrbTZyZ2s3dDEwbSJ9.2aPrUOjRujV5CQ14Agwl6g'
 }).addTo(map);
@@ -44,7 +44,7 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
     .then(function(response) {
         return response.json();
     }).then(function(mapJson) {
-        console.log('parsed json', mapJson);
+        // console.log('parsed json', mapJson);
 
         for (var i = 0; i < mapJson.results.length; ++i) {
             var popup = mapJson.results[i].location +
@@ -55,7 +55,9 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
                 '<br/><b>Last Updated:</b> ' + mapJson.results[i].lastUpdated +
                 '<br/><b>First Updated:</b> ' + mapJson.results[i].firstUpdated;
 
-            var m = L.marker([mapJson.results[i].coordinates.latitude, mapJson.results[i].coordinates.longitude], {
+            var latitude = mapJson.results[i].coordinates.latitude;
+            var longitude = mapJson.results[i].coordinates.longitude;
+            var m = L.marker([latitude, longitude], {
                     icon: myIcon
                 })
                 .bindPopup(popup);
@@ -67,41 +69,37 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
                 console.log(marker);
                 marker = marker.toString().replace(/[^0-9\,\.\-]/g, '');
                 console.log(marker);
-                var fetchUrl = 'https://api.openaq.org/v1/latest?limit=10000&has_geo=true&radius=1&coordinates=' + marker;
+                var fetchUrl = 'https://api.openaq.org/v1/latest?limit=10000&has_geo=true&radius=500&coordinates=' + marker;
                 console.log(fetchUrl);
 
                 fetch(fetchUrl)
                     .then(function(response) {
                         return response.json();
                     }).then(function(dataJson) {
-                        console.log('parsed json', dataJson);
-                        // document.getElementById("data").innerHTML =
+                        // console.log('parsed json', dataJson);
                         var whitespace = ' ';
-                        // document.getElementById("parameter").innerHTML = '';
-                        // document.getElementById("value").innerHTML = '';
-                        // document.getElementById("unit").innerHTML = '';
-                        // document.getElementById("lastUpdated").innerHTML = '';
-                        // dataJson.results[0].measurements.forEach(function(measurement) {
-                        //     document.getElementById("parameter").innerHTML += whitespace + measurement.parameter;
-                        //     document.getElementById("value").innerHTML += whitespace + measurement.value;
-                        //     document.getElementById("unit").innerHTML += whitespace + measurement.unit;
-                        //     document.getElementById("lastUpdated").innerHTML += whitespace + measurement.lastUpdated;
-                        // });
-                        // document.getElementById("tbody").innerHTML = '<tr>';
                         document.getElementById("tbody").innerHTML = '';
                         dataJson.results[0].measurements.forEach(function(measurement) {
-                            var opentd = '<td class="text-center">';
+                            var opentd = '<td id=\'' + measurement.parameter + '\' class="text-center white">';
+                            // var opentd1 = elementId' class="text-center white">';
                             var closetd = '</td>';
+                            console.log(opentd);
                             document.getElementById("tbody").innerHTML += opentd + measurement.parameter + closetd;
                             document.getElementById("tbody").innerHTML += opentd + measurement.value + closetd;
                             document.getElementById("tbody").innerHTML += opentd + measurement.unit + closetd;
                             document.getElementById("tbody").innerHTML += opentd + measurement.lastUpdated + closetd + whitespace;
                             document.getElementById("tbody").innerHTML = document.getElementById("tbody").innerHTML.replace(/><\/tr><tr>/g, '>');
-                            console.log(document.getElementById("tbody").innerHTML);
+                            if(measurement.parameter === 'pm25' && measurement.value >= 10){
+                                // document.querySelectorAll('.white')
+                                document.getElementById('pm25').classList.remove('white');
+                                document.getElementById('pm25').classList.add('red');
+                            } else {
+                                // document.getElementById('tbody').classList.remove('red');
+                                // if ( $('#tbody').hasClass('red') )
+                                // $('#tbody').removeClass('red');
+                            }
+                            // console.log(document.getElementById("tbody").innerHTML);
                         });
-                        // document.getElementById("tbody").innerHTML += '</tr>';
-                        // document.getElementById("tbody").innerHTML.replace('<\/tr><tr>', '');
-                        // console.log('pappu' + document.getElementById("tbody").innerHTML);
                     }).catch(function(ex) {
                         console.log('parsing failed', ex);
                     });
@@ -110,6 +108,5 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
     }).catch(function(ex) {
         console.log('parsing failed', ex);
     });
-
 
 map.addLayer(markerClusters);
