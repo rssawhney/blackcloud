@@ -78,27 +78,20 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
                     }).then(function(dataJson) {
                         // console.log('parsed json', dataJson);
                         var whitespace = ' ';
-                        document.getElementById("tbody").innerHTML = '';
+                        // document.getElementById("tbody").innerHTML = '';
+                        $('#tbody').html('');
                         dataJson.results[0].measurements.forEach(function(measurement) {
-                            var opentd = '<td id=\'' + measurement.parameter + '\' class="text-center white">';
+                            var opentr = '<tr ' + 'class=' + measurement.parameter + '>';
+                            var closetr = '</tr>';
+                            var opentd = '<td class="text-center">';
                             // var opentd1 = elementId' class="text-center white">';
                             var closetd = '</td>';
-                            console.log(opentd);
-                            document.getElementById("tbody").innerHTML += opentd + measurement.parameter + closetd;
-                            document.getElementById("tbody").innerHTML += opentd + measurement.value + closetd;
-                            document.getElementById("tbody").innerHTML += opentd + measurement.unit + closetd;
-                            document.getElementById("tbody").innerHTML += opentd + measurement.lastUpdated + closetd + whitespace;
-                            document.getElementById("tbody").innerHTML = document.getElementById("tbody").innerHTML.replace(/><\/tr><tr>/g, '>');
-                            if(measurement.parameter === 'pm25' && measurement.value >= 10){
-                                // document.querySelectorAll('.white')
-                                document.getElementById('pm25').classList.remove('white');
-                                document.getElementById('pm25').classList.add('red');
-                            } else {
-                                // document.getElementById('tbody').classList.remove('red');
-                                // if ( $('#tbody').hasClass('red') )
-                                // $('#tbody').removeClass('red');
+                            // document.getElementById("tbody").innerHTML += opentr + opentd + measurement.parameter + closetd + opentd + measurement.value + closetd + opentd + measurement.unit + closetd + opentd + measurement.lastUpdated + closetd + closetr;
+                            $('#tbody').html($('#tbody').html()+opentr + opentd + measurement.parameter + closetd + opentd + measurement.value + closetd + opentd + measurement.unit + closetd + opentd + measurement.lastUpdated + closetd + closetr);
+                            if (parseInt($($('.pm25').children()[1]).text()) >= 10) {
+                                $('.pm25').addClass('red');
                             }
-                            // console.log(document.getElementById("tbody").innerHTML);
+                            console.log(document.getElementById("tbody").innerHTML);
                         });
                     }).catch(function(ex) {
                         console.log('parsing failed', ex);
