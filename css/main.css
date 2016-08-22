@@ -194,13 +194,6 @@ body> section {
 #featuresIcon {
     padding: 20px 0;
 }
-#recent-works {
-    padding: 90px 0;
-}
-#recent-works .item-inner {
-    position: relative;
-    margin: 0;
-}
 .gallery-items, .gallery-filter {
     list-style: none;
     padding: 0;
