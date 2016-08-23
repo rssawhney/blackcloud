@@ -146,19 +146,27 @@ body> section {
     background-color: #7f8c8d;
 }
 .red {
-    background-color: #c60404 !important;
+    background-color: #ff0000 !important;
+    color: #000 !important;
+}
+.orange {
+    background-color: #ff5400 !important;
+    color: #000 !important;
+}
+.yellow {
+    background-color: #f5f200 !important;
     color: #000 !important;
 }
 .white {
     background-color: #fff !important;
     color: #000 !important;
 }
-.green {
-    background-color: #0aa210 !important;
+.light-green {
+    background-color: #8fff00 !important;
     color: #000 !important;
 }
-.yellow {
-    background-color: #f5f20a !important;
+.green {
+    background-color: #33ff00 !important;
     color: #000 !important;
 }
 #basicInfo .media:hover .icon-md {

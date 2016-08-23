@@ -86,20 +86,80 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
                             var closetd = '</td>';
 
                             $('#tbody').html($('#tbody').html() + opentr + opentd + measurement.parameter + closetd + opentd + measurement.value + closetd + opentd + measurement.unit + closetd + opentd + measurement.lastUpdated + closetd + closetr);
-                            if (parseInt($($('.pm25').children()[1]).text()) >= 10) {
-                                $('.pm25').addClass('red');
-                            } if (parseInt($($('.pm10').children()[1]).text()) >= 10) {
-                                $('.pm10').addClass('red');
-                            } if (parseInt($($('.no2').children()[1]).text()) >= 10) {
-                                $('.no2').addClass('red');
-                            } if (parseInt($($('.so2').children()[1]).text()) >= 10) {
-                                $('.so2').addClass('red');
-                            } if (parseInt($($('.o3').children()[1]).text()) >= 10) {
-                                $('.o3').addClass('red');
-                            } if (parseInt($($('.co').children()[1]).text()) >= 10) {
-                                $('.co').addClass('red');
-                            } if (parseInt($($('.bc').children()[1]).text()) >= 10) {
-                                $('.bc').addClass('red');
+                            if (parseFloat($($('.pm25').children()[1]).text()) != null) {
+                                if (parseFloat($($('.pm25').children()[1]).text()) <= 25) {
+                                    $('.pm25').addClass('green');
+                                } else if (parseFloat($($('.pm25').children()[1]).text()) <= 50) {
+                                    $('.pm25').addClass('light-green');
+                                } else if (parseFloat($($('.pm25').children()[1]).text()) <= 75) {
+                                    $('.pm25').addClass('yellow');
+                                } else if (parseFloat($($('.pm25').children()[1]).text()) <= 100) {
+                                    $('.pm25').addClass('orange');
+                                } else {
+                                    $('.pm25').addClass('red');
+                                }
+                            } if (parseFloat($($('.pm10').children()[1]).text()) != null) {
+                                if (parseFloat($($('.pm10').children()[1]).text()) <= 50) {
+                                    $('.pm10').addClass('green');
+                                } else if (parseFloat($($('.pm10').children()[1]).text()) <= 100) {
+                                    $('.pm10').addClass('light-green');
+                                } else if (parseFloat($($('.pm10').children()[1]).text()) <= 150) {
+                                    $('.pm10').addClass('yellow');
+                                } else if (parseFloat($($('.pm10').children()[1]).text()) <= 200) {
+                                    $('.pm10').addClass('orange');
+                                } else {
+                                    $('.pm10').addClass('red');
+                                }
+                            } if (parseFloat($($('.no2').children()[1]).text()) != null) {
+                                if (parseFloat($($('.no2').children()[1]).text()) <= 0.017) {
+                                    $('.no2').addClass('green');
+                                } else if (parseFloat($($('.no2').children()[1]).text()) <= 0.034) {
+                                    $('.no2').addClass('light-green');
+                                } else if (parseFloat($($('.no2').children()[1]).text()) <= 0.051) {
+                                    $('.no2').addClass('yellow');
+                                } else if (parseFloat($($('.no2').children()[1]).text()) <= 0.068) {
+                                    $('.no2').addClass('orange');
+                                } else {
+                                    $('.no2').addClass('red');
+                                }
+                            } if (parseFloat($($('.so2').children()[1]).text()) != null) {
+                                if (parseFloat($($('.so2').children()[1]).text()) <= 0.03) {
+                                    $('.so2').addClass('green');
+                                } else if (parseFloat($($('.so2').children()[1]).text()) <= 0.06) {
+                                    $('.so2').addClass('light-green');
+                                } else if (parseFloat($($('.so2').children()[1]).text()) <= 0.09) {
+                                    $('.so2').addClass('yellow');
+                                } else if (parseFloat($($('.so2').children()[1]).text()) <= 0.12) {
+                                    $('.so2').addClass('orange');
+                                } else {
+                                    $('.so2').addClass('red');
+                                }
+                            } if (parseFloat($($('.o3').children()[1]).text()) != null) {
+                                if (parseFloat($($('.o3').children()[1]).text()) <= 0.04) {
+                                    $('.o3').addClass('green');
+                                } else if (parseFloat($($('.o3').children()[1]).text()) <= 0.08) {
+                                    $('.o3').addClass('light-green');
+                                } else if (parseFloat($($('.o3').children()[1]).text()) <= 0.12) {
+                                    $('.o3').addClass('yellow');
+                                } else if (parseFloat($($('.o3').children()[1]).text()) <= 0.15) {
+                                    $('.o3').addClass('orange');
+                                } else {
+                                    $('.o3').addClass('red');
+                                }
+                            } if (parseFloat($($('.co').children()[1]).text()) >= 0) {
+                                if (parseFloat($($('.co').children()[1]).text()) <= 2) {
+                                    $('.co').addClass('green');
+                                } else if (parseFloat($($('.co').children()[1]).text()) <= 4) {
+                                    $('.co').addClass('light-green');
+                                } else if (parseFloat($($('.co').children()[1]).text()) <= 6) {
+                                    $('.co').addClass('yellow');
+                                } else if (parseFloat($($('.co').children()[1]).text()) <= 8) {
+                                    $('.co').addClass('orange');
+                                } else {
+                                    $('.co').addClass('red');
+                                }
+                            } if (parseFloat($($('.bc').children()[1]).text()) >= 0) {
+                                $('.bc').addClass('yellow');
                             }
                             // console.log(document.getElementById("tbody").innerHTML);
                         });
