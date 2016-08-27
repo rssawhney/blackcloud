@@ -86,79 +86,88 @@ fetch('https://api.openaq.org/v1/locations?limit=10000&has_geo=true')
                             var closetd = '</td>';
 
                             $('#tbody').html($('#tbody').html() + opentr + opentd + measurement.parameter + closetd + opentd + measurement.value + closetd + opentd + measurement.unit + closetd + opentd + measurement.lastUpdated + closetd + closetr);
-                            if (parseFloat($($('.pm25').children()[1]).text()) != null) {
-                                if (parseFloat($($('.pm25').children()[1]).text()) <= 25) {
+
+                            var pm25Value = parseFloat($($('.pm25').children()[1]).text());
+                            var pm10Value = parseFloat($($('.pm10').children()[1]).text());
+                            var no2Value = parseFloat($($('.no2').children()[1]).text());
+                            var so2Value = parseFloat($($('.so2').children()[1]).text());
+                            var o3Value = parseFloat($($('.o3').children()[1]).text());
+                            var coValue = parseFloat($($('.co').children()[1]).text());
+                            var bcValue = parseFloat($($('.bc').children()[1]).text());
+
+                            if (pm25Value != null) {
+                                if (pm25Value <= 25) {
                                     $('.pm25').addClass('green');
-                                } else if (parseFloat($($('.pm25').children()[1]).text()) <= 50) {
+                                } else if (pm25Value <= 50) {
                                     $('.pm25').addClass('light-green');
-                                } else if (parseFloat($($('.pm25').children()[1]).text()) <= 75) {
+                                } else if (pm25Value <= 75) {
                                     $('.pm25').addClass('yellow');
-                                } else if (parseFloat($($('.pm25').children()[1]).text()) <= 100) {
+                                } else if (pm25Value <= 100) {
                                     $('.pm25').addClass('orange');
                                 } else {
                                     $('.pm25').addClass('red');
                                 }
-                            } if (parseFloat($($('.pm10').children()[1]).text()) != null) {
-                                if (parseFloat($($('.pm10').children()[1]).text()) <= 50) {
+                            } if (pm10Value != null) {
+                                if (pm10Value <= 50) {
                                     $('.pm10').addClass('green');
-                                } else if (parseFloat($($('.pm10').children()[1]).text()) <= 100) {
+                                } else if (pm10Value <= 100) {
                                     $('.pm10').addClass('light-green');
-                                } else if (parseFloat($($('.pm10').children()[1]).text()) <= 150) {
+                                } else if (pm10Value <= 150) {
                                     $('.pm10').addClass('yellow');
-                                } else if (parseFloat($($('.pm10').children()[1]).text()) <= 200) {
+                                } else if (pm10Value <= 200) {
                                     $('.pm10').addClass('orange');
                                 } else {
                                     $('.pm10').addClass('red');
                                 }
-                            } if (parseFloat($($('.no2').children()[1]).text()) != null) {
-                                if (parseFloat($($('.no2').children()[1]).text()) <= 0.017) {
+                            } if (no2Value != null) {
+                                if (no2Value <= 0.017) {
                                     $('.no2').addClass('green');
-                                } else if (parseFloat($($('.no2').children()[1]).text()) <= 0.034) {
+                                } else if (no2Value <= 0.034) {
                                     $('.no2').addClass('light-green');
-                                } else if (parseFloat($($('.no2').children()[1]).text()) <= 0.051) {
+                                } else if (no2Value <= 0.051) {
                                     $('.no2').addClass('yellow');
-                                } else if (parseFloat($($('.no2').children()[1]).text()) <= 0.068) {
+                                } else if (no2Value <= 0.068) {
                                     $('.no2').addClass('orange');
                                 } else {
                                     $('.no2').addClass('red');
                                 }
-                            } if (parseFloat($($('.so2').children()[1]).text()) != null) {
-                                if (parseFloat($($('.so2').children()[1]).text()) <= 0.03) {
+                            } if (so2Value != null) {
+                                if (so2Value <= 0.03) {
                                     $('.so2').addClass('green');
-                                } else if (parseFloat($($('.so2').children()[1]).text()) <= 0.06) {
+                                } else if (so2Value <= 0.06) {
                                     $('.so2').addClass('light-green');
-                                } else if (parseFloat($($('.so2').children()[1]).text()) <= 0.09) {
+                                } else if (so2Value <= 0.09) {
                                     $('.so2').addClass('yellow');
-                                } else if (parseFloat($($('.so2').children()[1]).text()) <= 0.12) {
+                                } else if (so2Value <= 0.12) {
                                     $('.so2').addClass('orange');
                                 } else {
                                     $('.so2').addClass('red');
                                 }
-                            } if (parseFloat($($('.o3').children()[1]).text()) != null) {
-                                if (parseFloat($($('.o3').children()[1]).text()) <= 0.04) {
+                            } if (o3Value != null) {
+                                if (o3Value <= 0.04) {
                                     $('.o3').addClass('green');
-                                } else if (parseFloat($($('.o3').children()[1]).text()) <= 0.08) {
+                                } else if (o3Value <= 0.08) {
                                     $('.o3').addClass('light-green');
-                                } else if (parseFloat($($('.o3').children()[1]).text()) <= 0.12) {
+                                } else if (o3Value <= 0.12) {
                                     $('.o3').addClass('yellow');
-                                } else if (parseFloat($($('.o3').children()[1]).text()) <= 0.15) {
+                                } else if (o3Value <= 0.15) {
                                     $('.o3').addClass('orange');
                                 } else {
                                     $('.o3').addClass('red');
                                 }
-                            } if (parseFloat($($('.co').children()[1]).text()) >= 0) {
-                                if (parseFloat($($('.co').children()[1]).text()) <= 2) {
+                            } if (coValue >= 0) {
+                                if (coValue <= 2) {
                                     $('.co').addClass('green');
-                                } else if (parseFloat($($('.co').children()[1]).text()) <= 4) {
+                                } else if (coValue <= 4) {
                                     $('.co').addClass('light-green');
-                                } else if (parseFloat($($('.co').children()[1]).text()) <= 6) {
+                                } else if (coValue <= 6) {
                                     $('.co').addClass('yellow');
-                                } else if (parseFloat($($('.co').children()[1]).text()) <= 8) {
+                                } else if (coValue <= 8) {
                                     $('.co').addClass('orange');
                                 } else {
                                     $('.co').addClass('red');
                                 }
-                            } if (parseFloat($($('.bc').children()[1]).text()) >= 0) {
+                            } if (bcValue >= 0) {
                                 $('.bc').addClass('yellow');
                             }
                             // console.log(document.getElementById("tbody").innerHTML);
